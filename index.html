@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="weather">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>In-Time Weather System</title>
+
+    <!-- Bootstrap -->
+    <link href="./public/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./public/css/main.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./node_modules/wowjs/css/libs/animate.css"> -->
+    <!-- <script> -->
+      <!-- new WOW().init(); -->
+    <!-- </script> -->
+  </head>
+  <body>
+    <!--====================================================HEADER=====================================-->
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">In-Time Weather System</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li  class="active "><a ui-sref="main">Home</a></li>
+                  <li><a ui-sref="contact">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+    <!--================================================MAIN====================================-->
+          <!-- <div id="main">
+              <div ui-view></div>
+          </div> -->
+          <div ui-view></div>
+        <!--=============================================FOOTER===========================================-->
+    <div class="col-lg-12" >
+      <div class="mastfoot">
+              <div class="inner">
+                <p>&copyICP: 蜀ICP备15022210号-2 Contact Gmail：lj550566181@gmail.com</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./public/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./public/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="http://cdn.staticfile.org/snap.svg/0.2.0/snap.svg-min.js"></script> -->
+
+    <script src="./public/js/angular.min.js"></script>
+    <script src="./public/js/angular-ui-router.min.js"></script>
+    <!-- <script src="./public/js/angular-route.min.js"></script> -->
+    <!-- <script src="./public/js/loading_animation.js"></script> -->
+    <script src="./js/app.js"></script>
+    <script src="./js/controller.js"></script>
+    <!-- <script src="./public/js/me-pageloading.min.js"></script> -->
+    <!-- <script src="./node_modules/wowjs/dist/wow.min.js"></script> -->
+  </body>
+</html>
