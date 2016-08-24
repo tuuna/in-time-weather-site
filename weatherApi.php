@@ -59,16 +59,16 @@ $action = $_GET['action'];
         }
       $rawpostdata = file_get_contents("php://input");
       $post = json_decode($rawpostdata, true);
-      $position = $post['position'];
+      $position = $post['search'];
       $curl = new Curl();
       $datas = $curl->get("https://api.heweather.com/x3/weather?city=$position&key=db5f1b7aae8249c8854867670ebfc312");
       $tst = new calc;
       $tst = $tst->object_to_array($datas);
-      $tst = $tst['HeWeather data service 3.0'][0]['daily_forecast'];
+      $tst = $tst['HeWeather data service 3.0'][0];
       $data = [];
-      foreach($tst as $key => $t) {
-        $data[] = $t;
-      }
-      echo json_encode($data);
+    //   foreach($tst as $key => $t) {
+    //     $data[] = $t;
+    //   }
+      echo json_encode($tst);
      break;
    }

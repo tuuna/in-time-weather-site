@@ -25,22 +25,42 @@ var app = angular.module('weather', ['ui.router']);
 // }]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/");
-    //
-    // Now set up the states
+
+    $urlRouterProvider.otherwise('/');
+
     $stateProvider
+
+    // HOME STATES AND NESTED VIEWS ========================================
         .state('main', {
-            url: "/",
-            templateUrl: "partials/main.html",
-            controller: "indexController"
-        })
-        .state('contact', {
-            url: "/contact",
-            templateUrl: "partials/contact.html"
-        })
-        .state('show', {
-            url: "/:search",
-            templateUrl: "partials/show.html"
-        })
+        url: '/',
+        templateUrl: 'partials/main.html',
+        controller: function($scope, $http) {
+
+            $http.post("weatherApi.php?action=getUserPosition", {})
+                .success(function getposition(data) {
+                    $scope.position = data;
+                });
+        }
+    })
+
+    // nested list with custom controller
+    .state('main.list', {
+        url: '/list/:search',
+        templateUrl: 'partials/main-list.html',
+        controller: function($scope, $http, $stateParams) {
+            $http.post("weatherApi.php?action=showDatas", {
+                    search: $stateParams.search
+                })
+                .success(function getweather(data) {
+                    console.log(data.daily_forecast);
+                    $scope.weathers = data.daily_forecast;
+                })
+        }
+    })
+
+    // nested list with just some random string data
+    .state('contact', {
+        url: '/contact',
+        templateUrl: "partials/contact.html"
+    })
 });
